@@ -1,0 +1,142 @@
+version: 1.1.0
+last_updated: 2025-01-28
+entity:
+  name: Tune
+  type: Open-source developer tooling + desktop app + studio service
+  founders: Ivan, Ilya
+  nature: "Text-first agentic middleware + out-of-the-box desktop app + Brand OS studio"
+
+constitution:
+  mission: >
+    To replace "AI vibes" with "Engineering discipline."
+    We build the middleware (Tune) that makes agentic systems inspectable,
+    testable, and composable via a simple text interface.
+
+  north_star: >
+    "Text is the Interface."
+    Complex systems should be controlled by simple, versionable text files,
+    not opaque drag-and-drop UIs or black-box prompts.
+
+  core_thesis: |
+    The best way to build a robust AI engine (Tune) is to continuously build
+    production systems for real clients (Studio).
+    Service funds Product. Product accelerates Service.
+
+strategy:
+  the_flywheel:
+    1_build: "Solve a hard, specific problem for a client (Studio)."
+    2_extract: "Refactor the solution into generic tools/middlewares (Tune Core)."
+    3_enable: "Release the tools so others can build (Community/Product)."
+    4_compound: "Next client build starts at a higher baseline."
+
+  how_we_win:
+    - Show, Don't Pitch: We are bad at sales decks. We are elite at "live demos on your data."
+    - Build to Decide: We don't argue over specs. We prototype the system to force the decision.
+    - Safety First: We sell reliability (evals, guardrails, citations), not just magic.
+    - Text-Centric: We filter for clients/users who value transparency and control over "flashy UI."
+
+operating_principles:
+  - "Text is Truth": If it isn't in a file/config, it doesn't exist. No hidden magic.
+  - "Middleware Mindset": Break big problems into small, chainable, testable steps.
+  - "Determinism over Vibes": Always implement guardrails, citations, and evals. Never ship raw LLM output.
+  - "Artifacts > Advice": Never deliver a PDF strategy. Deliver a runnable repository.
+  - "Eat Your Own Dogfood": We run our company on Tune. Clients run on Tune.
+
+offer_structure:
+  opensource_tune:
+    type: "Open Source / SDK + CLI"
+    target: "Developers/Technical founders building agentic systems."
+    promise: "A text-first, inspectable, testable agentic middleware—SDK, base tools, and editor extensions."
+    components:
+      - "SDK"
+      - "Base tools"
+      - "Extensions: VS Code, Neovim (and others)"
+    pricing: "Free / OSS"
+    goal: "Adoption + ecosystem + feedback loop into the core."
+
+  desktop_app:
+    type: "Desktop App"
+    target: "Users who want Tune out-of-the-box (no setup / no plumbing)."
+    promise: "Install and use Tune immediately with sensible defaults; optional power-user escape hatch into text configs."
+    pricing: "TBD (free tier + paid?)"
+    goal: "Distribution beyond devs + faster onboarding + monetization surface."
+
+  studio_builds:
+    type: "Service / Project"
+    target: "Teams needing a specific production AI system (Support, Knowledge, Sales, Brand)."
+    promise: "We build the system + the evaluation harness on top of Tune."
+    pricing: "Fixed Sprint or Capped Pilot."
+    goal: "Revenue + stress-testing Tune."
+
+constraints:
+  - No "Black Box" Builds: Client must own the system/repo eventually.
+  - No "Consulting Only": We do not sell hours of talk. We sell hours of build.
+  - No "GUI First": We solve the logic in text/code first. UI is just a wrapper.
+  - No Unbounded Scope: Every engagement has a definition of "Done" based on testable outputs.
+
+brand_voice:
+  tone: "Engineer-Founder to Engineer-Founder."
+  keywords: ["Sharp", "Grounded", "Technical", "Transparent", "Builder"]
+  anti_keywords: ["Hype", "Corporate", "Vague", "Salesy", "Magic"]
+
+positioning:
+  category: "Brand Infrastructure / Brand OS"
+  core_promise: "Lossless translation from vision to every touchpoint."
+  tagline: "Lossless Execution."
+
+  audience_established:
+    label: "Scaling companies / CMOs / Growth leads"
+    headline: "Tune Studio delivers an outcome traditional agencies can't."
+    narrative: |
+      If you're lucky, your agency delivers a beautiful vision.
+      A sharp strategy. A few chief-supervised hero assets.
+      Then reality hits.
+      52 social posts. 4 landing pages. 120 ad variations. Sales decks. Onboarding emails.
+      The person who built the strategy doesn't build the assets.
+      The person who builds the assets didn't build the strategy.
+      That gap is where brands become mediocre.
+
+      Tune Studio installs a production engine.
+      A Brand OS that runs your strategy. Your vision.
+      Positioning, tone, and creative direction are encoded into the system.
+      It generates ads, decks, landings, and campaigns — directly from the vision.
+
+      The result: lossless translation from vision to every touchpoint.
+      Scale kills quality.
+      Our engine protects and compounds it.
+      Every output carries the full weight of the original idea.
+
+  audience_startups:
+    label: "Founders / Early-stage startups"
+    headline: "Does your strategy actually work when it hits reality?"
+    narrative: |
+      You're exploring a new idea.
+      You hire a strategist to help structure the vision.
+      They deliver positioning, messaging, maybe a manifesto.
+      It reads well. It resonates on paper.
+
+      Then you try to build with it.
+      Landing page doesn't feel right.
+      Pitch deck sounds different from the website.
+      Ads simplify the message beyond recognition.
+      Designer goes one direction. Copywriter goes another.
+
+      Now you're stuck.
+      Is the strategy wrong?
+      Or did execution just miss?
+      You can't tell. Nobody can.
+
+      Tune Studio removes that ambiguity.
+      We take your strategy and give it bones and meat — immediately.
+      Positioning becomes real pages, real ads, real decks.
+      Not as a "creative interpretation."
+      As a direct, lossless translation.
+
+      If it doesn't hold — you see it fast and fix the strategy.
+      If it holds — you have a production engine that keeps shipping from that source.
+
+      No gap between what you meant and what got built.
+      No months lost wondering if the vision was right.
+
+      Strategy stops being a document you hope survives.
+      It becomes a system you test, prove, and scale.

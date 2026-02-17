@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Tune — Brand OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { blu: '#2400FF' },
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+          serif: ['Instrument Serif', 'serif'],
+          mono: ['Ubuntu Mono', 'monospace'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #fff; color: #000; }
+  ::-webkit-scrollbar { display: none; }
+  body { -ms-overflow-style: none; scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</head>
+<body>
+
+<div class="max-w-[430px] mx-auto relative">
+
+  <!-- sticky header: full-width white bar at top -->
+  <div class="sticky top-0 z-30">
+    <div id="headerBg" class="absolute left-0 right-0 top-0 bg-white transition-opacity duration-300" style="height:55px;"></div>
+    <div class="relative px-5 pt-6 pb-4">
+      <img id="logo" src="assets/tune_brand_os.png" alt="Tune Brand OS" class="h-[60px] transition-all duration-300">
+    </div>
+  </div>
+
+  <!-- push list to start from mid-screen -->
+  <div class="h-[45vh]"></div>
+
+  <!-- process list aligned with brand_os text -->
+  <div id="processList" class="pr-5" style="padding-left: 88px;">
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">banner production</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">social content</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">ad variations</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">landing pages</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">site design</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">slide design</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">motion design</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">brand identity</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">creative direction</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">positioning</div>
+    <div class="proc py-4 text-[21px] text-black/40 font-mono">strategy</div>
+
+    <!-- human taste -->
+    <div id="humanTaste" class="mt-16 py-2">
+      <span id="humanTasteText" class="font-serif italic text-black/40 text-[32px] transition-colors duration-300">human taste</span>
+    </div>
+  </div>
+
+  <!-- showcases (each = horizontal scroll carousel + square indicators) -->
+  <div class="pt-14">
+
+    <div class="showcase mb-10" data-count="4">
+      <div class="car no-scrollbar flex overflow-x-auto snap-x snap-mandatory" style="scrollbar-width:none;">
+        <div class="snap-start shrink-0 w-full"><img src="assets/1.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/2.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/3.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/4.png" class="w-full block" alt=""></div>
+      </div>
+      <div class="dots mt-2 flex gap-2 px-2"></div>
+    </div>
+
+    <div class="showcase mb-10" data-count="4">
+      <div class="car no-scrollbar flex overflow-x-auto snap-x snap-mandatory" style="scrollbar-width:none;">
+        <div class="snap-start shrink-0 w-full"><img src="assets/2.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/3.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/4.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/1.png" class="w-full block" alt=""></div>
+      </div>
+      <div class="dots mt-2 flex gap-2 px-2"></div>
+    </div>
+
+    <div class="showcase mb-4" data-count="4">
+      <div class="car no-scrollbar flex overflow-x-auto snap-x snap-mandatory" style="scrollbar-width:none;">
+        <div class="snap-start shrink-0 w-full"><img src="assets/3.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/4.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/1.png" class="w-full block" alt=""></div>
+        <div class="snap-start shrink-0 w-full"><img src="assets/2.png" class="w-full block" alt=""></div>
+      </div>
+      <div class="dots mt-2 flex gap-2 px-2"></div>
+    </div>
+
+  </div>
+
+  <!-- manifesto / offer -->
+  <div class="px-5 pt-10 pb-14">
+    <div class="font-mono text-[15px] leading-[1.35] text-black/80">
+      <div class="mb-6">BRAND OS</div>
+
+      <div class="mb-4">Lossless execution.</div>
+
+      <div class="mb-6 text-black/60">
+        Strategy is useless if it can’t survive production.
+        We turn positioning into a system.
+        The system ships.
+      </div>
+
+      <div class="mb-2 text-black/80">What we install</div>
+      <div class="text-black/60">
+        - source of truth (text)
+        <br>- tone + rules
+        <br>- templates + pipelines
+        <br>- QA: evals, checks, citations
+      </div>
+
+      <div class="mt-8 mb-2 text-black/80">Output</div>
+      <div class="text-black/60">
+        Ads. Landings. Decks. Campaigns.
+        <br>Same idea. Every touchpoint.
+      </div>
+
+      <div class="mt-10 text-black/80">brand_os@tune.ac</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const logo = document.getElementById('logo');
+  const headerBg = document.getElementById('headerBg');
+  const humanTaste = document.getElementById('humanTaste');
+  const humanTasteText = document.getElementById('humanTasteText');
+  const procs = Array.from(document.querySelectorAll('.proc'));
+
+  // baseline: bottom of the logo image (approx where brand_os sits)
+  function getThresholdY() {
+    const r = logo.getBoundingClientRect();
+    return r.bottom;
+  }
+
+  function onScroll() {
+    const threshold = getThresholdY();
+
+    // blue highlight when a process passes under logo baseline
+    for (const p of procs) {
+      const r = p.getBoundingClientRect();
+      if (r.top < threshold) {
+        p.classList.add('text-blu');
+        p.classList.remove('text-black/40');
+      } else {
+        p.classList.remove('text-blu');
+        p.classList.add('text-black/40');
+      }
+    }
+
+    // logo minification + human taste turns blue in the end
+    const ht = humanTaste.getBoundingClientRect();
+    if (ht.top < threshold) {
+      logo.style.height = '36px';
+      headerBg.style.opacity = '0';
+      humanTasteText.classList.add('text-blu');
+      humanTasteText.classList.remove('text-black/40');
+    } else {
+      logo.style.height = '60px';
+      headerBg.style.opacity = '1';
+      humanTasteText.classList.remove('text-blu');
+      humanTasteText.classList.add('text-black/40');
+    }
+  }
+
+  function initCarousels() {
+    const showcases = document.querySelectorAll('.showcase');
+
+    showcases.forEach(sc => {
+      const car = sc.querySelector('.car');
+      const dots = sc.querySelector('.dots');
+      const slides = Array.from(car.children);
+      const n = slides.length;
+
+      // build square indicators
+      dots.innerHTML = '';
+      for (let i = 0; i < n; i++) {
+        const d = document.createElement('div');
+        d.className = 'w-2 h-2 border border-black/70';
+        d.dataset.idx = String(i);
+        dots.appendChild(d);
+      }
+
+      function setActive(idx) {
+        Array.from(dots.children).forEach((d, i) => {
+          if (i === idx) {
+            d.classList.add('bg-black');
+            d.classList.remove('bg-transparent');
+          } else {
+            d.classList.remove('bg-black');
+            d.classList.add('bg-transparent');
+          }
+        });
+      }
+
+      // update active dot based on scroll position
+      function onCarScroll() {
+        const w = car.clientWidth || 1;
+        const idx = Math.round(car.scrollLeft / w);
+        setActive(Math.max(0, Math.min(n - 1, idx)));
+      }
+
+      car.addEventListener('scroll', onCarScroll, { passive: true });
+      setActive(0);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  initCarousels();
+  onScroll();
+</script>
+
+</body>
+</html>

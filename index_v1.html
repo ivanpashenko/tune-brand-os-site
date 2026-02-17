@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Tune — Brand OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        blu: '#2400FF',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Instrument Serif', 'serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  * { -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #fff; color: #000; overflow-x: hidden; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+</head>
+<body class="no-scrollbar">
+
+<div class="max-w-[430px] mx-auto relative">
+
+  <!-- sticky logo zone -->
+  <div id="logoZone" class="sticky top-0 z-30 bg-white px-5 pt-6 pb-4 transition-all duration-300" style="transform-origin: left top;">
+    <img id="logo" src="assets/tune_brand_os.png" alt="Tune Brand OS" class="h-10 transition-all duration-500">
+  </div>
+
+  <!-- spacer to push list to middle of viewport on load -->
+  <div id="topSpacer" class="h-[45vh]"></div>
+
+  <!-- process list — aligned with "brand_os" text (past the logomark) -->
+  <div id="processList" class="pr-5" style="padding-left: 65px;">
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">banner production</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">social content</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">ad variations</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">landing pages</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">site design</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">slide design</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">motion design</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">brand identity</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">creative direction</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">positioning</div>
+    <div class="svc-item py-1.5 text-[15px] tracking-tight text-black/70">strategy</div>
+
+    <!-- human taste — the capstone -->
+    <div id="humanTaste" class="py-2">
+      <span class="font-serif italic text-blu text-[22px]">human taste</span>
+    </div>
+  </div>
+
+  <!-- showcase — full width images, one per row -->
+  <div id="showcase" class="pt-6 pb-12 opacity-0 translate-y-8 transition-all duration-700">
+    <div class="w-full"><img src="assets/1.png" alt="" class="w-full block"></div>
+    <div class="w-full"><img src="assets/2.png" alt="" class="w-full block"></div>
+    <div class="w-full"><img src="assets/3.png" alt="" class="w-full block"></div>
+    <div class="w-full"><img src="assets/4.png" alt="" class="w-full block"></div>
+  </div>
+
+</div>
+
+<script>
+  const logoZone = document.getElementById('logoZone');
+  const logo = document.getElementById('logo');
+  const topSpacer = document.getElementById('topSpacer');
+  const humanTaste = document.getElementById('humanTaste');
+  const showcase = document.getElementById('showcase');
+  const items = document.querySelectorAll('.svc-item');
+
+  let showcaseRevealed = false;
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    const viewH = window.innerHeight;
+
+    // 1. shrink spacer as user scrolls — list rises into logo
+    const spacerMax = viewH * 0.45;
+    const spacerVal = Math.max(0, spacerMax - scrollY);
+    topSpacer.style.height = spacerVal + 'px';
+
+    // 2. color items that crossed into the logo zone (top ~80px)
+    items.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < 80) {
+        item.classList.add('text-blu');
+        item.classList.remove('text-black/70');
+      } else {
+        item.classList.remove('text-blu');
+        item.classList.add('text-black/70');
+      }
+    });
+
+    // 3. detect human taste eaten (scrolled past top)
+    const htRect = humanTaste.getBoundingClientRect();
+    if (htRect.top < 80) {
+      // shrink logo
+      logo.style.height = '24px';
+      logoZone.style.paddingTop = '12px';
+      logoZone.style.paddingBottom = '8px';
+
+      // reveal showcase
+      if (!showcaseRevealed) {
+        showcaseRevealed = true;
+        showcase.classList.remove('opacity-0', 'translate-y-8');
+        showcase.classList.add('opacity-100', 'translate-y-0');
+      }
+    } else {
+      logo.style.height = '40px';
+      logoZone.style.paddingTop = '24px';
+      logoZone.style.paddingBottom = '16px';
+
+      if (showcaseRevealed) {
+        showcaseRevealed = false;
+        showcase.classList.add('opacity-0', 'translate-y-8');
+        showcase.classList.remove('opacity-100', 'translate-y-0');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
