@@ -35,9 +35,17 @@
 <div class="max-w-[430px] mx-auto relative">
 
   <!-- sticky header: full-width white bar at top -->
-  <div class="sticky top-0 z-30">
-    <div class="relative px-5 pt-6 pb-4">
-      <img id="logo" src="assets/tune_brand_os.png" alt="Tune Brand OS" class="h-[60px] transition-all duration-300">
+  <div id="header" class="sticky top-0 z-30 bg-white" style="height:70px;">
+    <div class="relative px-5 pt-3">
+      <div class="relative" style="transform-origin:left top;">
+        <img id="logo" src="assets/tune_brand_os.png" alt="Tune Brand OS" class="h-[60px] transition-all duration-300">
+        <div id="stickyTaste" class="absolute font-serif italic text-black/40 transition-all duration-300 whitespace-nowrap"
+             style="top:18px; left:40px; font-size:16px; line-height:1; opacity:1;">human taste</div>
+      </div>
+
+      <!-- current process badge (blue box with white letters) -->
+      <div id="currentBadge" class="absolute left-[88px] bg-blu text-white font-mono leading-none whitespace-nowrap"
+           style="top:44px;height:20px;padding:0 0.2em 0.2em 0.2em;opacity:1;font-size:20px;"></div>
     </div>
   </div>
 
@@ -140,53 +148,65 @@
 
 <script>
   const logo = document.getElementById('logo');
+  const stickyTaste = document.getElementById('stickyTaste');
   const humanTaste = document.getElementById('humanTaste');
   const humanTasteText = document.getElementById('humanTasteText');
   const procs = Array.from(document.querySelectorAll('.proc'));
 
-  // fade band is fixed in screen coords (simpler + stable):
-  // opacity 1 at y=100px, opacity 0 at y=50px
-  function fadeForTopY(topY) {
-    const y1 = 100; // fully visible
-    const y0 = 50;  // fully gone
-    const t = (topY - y0) / (y1 - y0); // 0..1
-    return Math.max(0, Math.min(1, t));
-  }
+  const currentBadge = document.getElementById('currentBadge');
+
+  // When a process scrolls under the header (not visible anymore),
+  // we advance the blue badge text.
+  const headerHideY = 55; // matches header height
 
   function onScroll() {
-    // processes: fixed fade window in screen space
-    // y=100 => opacity 1, y=50 => opacity 0
+    // processes: stay gray. badge updates only after a process is fully hidden.
     for (const p of procs) {
-      const r = p.getBoundingClientRect();
-      const op = fadeForTopY(r.top);
-
-      // turn blue only while inside the fade zone
-      if (op < 1 && op > 0) {
-        p.classList.add('text-blu');
-        p.classList.remove('text-black/40');
-      } else if (op === 1) {
-        p.classList.remove('text-blu');
-        p.classList.add('text-black/40');
-      } else {
-        // fully gone, keep blue (doesn't matter much, but consistent)
-        p.classList.add('text-blu');
-        p.classList.remove('text-black/40');
-      }
-
-      p.style.opacity = String(op);
-      p.style.transition = 'opacity 120ms linear';
+      p.classList.remove('text-blu');
+      p.classList.add('text-black/40');
+      p.style.opacity = '1';
     }
 
-    // logo minification + human taste turns blue in the end
+    // find last process that is fully hidden under header
+    let hiddenIdx = -1;
+    for (let i = 0; i < procs.length; i++) {
+      const r = procs[i].getBoundingClientRect();
+      if (r.bottom < headerHideY) hiddenIdx = i;
+    }
+
+    if (currentBadge.style.display !== 'none') {
+      if (hiddenIdx > -1) {
+        currentBadge.textContent = procs[hiddenIdx].textContent;
+      } else {
+        currentBadge.textContent = '';
+      }
+    }
+
+    // when "human taste" reaches the header, it sticks to the logo and scales with it
     const ht = humanTaste.getBoundingClientRect();
-    if (ht.top < 70) {
+    const stickyOn = ht.top < 70;
+
+    if (stickyOn) {
+      header.style.height = '55px';
       logo.style.height = '36px';
-      humanTasteText.classList.add('text-blu');
-      humanTasteText.classList.remove('text-black/40');
+      stickyTaste.style.opacity = '1';
+      stickyTaste.classList.add('text-blu');
+      stickyTaste.classList.remove('text-black/40');
+
+      // hide the in-list human taste (prevents double)
+      humanTasteText.style.opacity = '0';
+
+      // no blue box once we're in the final state
+      currentBadge.style.display = 'none';
     } else {
+      header.style.height = '70px';
       logo.style.height = '60px';
-      humanTasteText.classList.remove('text-blu');
-      humanTasteText.classList.add('text-black/40');
+      stickyTaste.style.opacity = '0';
+      stickyTaste.classList.remove('text-blu');
+      stickyTaste.classList.add('text-black/40');
+
+      humanTasteText.style.opacity = '1';
+      currentBadge.style.display = 'block';
     }
   }
 
